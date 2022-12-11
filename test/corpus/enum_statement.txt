@@ -1,0 +1,19 @@
+==============
+Enum Statement
+==============
+
+enum MyEnum {
+	ENUM_VALUE_NAME = 10;
+}
+
+---
+(source_file
+	(enum_statement
+		(declaration_identifier)
+		(enum_value_statement
+			(declaration_identifier)
+			(number)
+		)
+	)
+)
+

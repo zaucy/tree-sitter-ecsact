@@ -1,0 +1,50 @@
+package example;
+
+import other.package;
+import cool;
+
+enum DamageType {
+	FIRE = 0;
+	ROCK = 1;
+}
+
+component Health {
+	f32 value;
+}
+
+component Attacking {
+	DamageType damage;
+	entity target;
+}
+
+component Poisoned {
+	f32 potency;
+}
+
+system PoisonDamage {
+	readwrite Health;
+	readonly Poisoned;
+}
+
+system AttackerDamageShortSyntax {
+	readonly Attacking with target {
+		readwrite Health;
+	}
+}
+
+system AttackerDamageLongSyntax {
+	readonly Attacking {
+		with target {
+			readwrite Health;
+		}
+	}
+}
+
+component Attacker;
+
+action Attack {
+	entity target;
+	include Attacker;
+	adds Attacking;
+}
+

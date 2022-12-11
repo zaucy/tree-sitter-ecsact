@@ -1,0 +1,35 @@
+{
+  "name": "tree-sitter-ecsact",
+  "version": "0.1.0",
+  "description": "",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter test",
+    "generate": "tree-sitter generate",
+    "highlight": "tree-sitter highlight examples/example.ecsact"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecsact-dev/tree-sitter-ecsact.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecsact-dev/tree-sitter-ecsact/issues"
+  },
+  "homepage": "https://github.com/ecsact-dev/tree-sitter-ecsact#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.7"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.ecsact",
+      "file-types": [
+        "ecsact"
+      ]
+    }
+  ]
+}

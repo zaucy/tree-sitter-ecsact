@@ -1,0 +1,32 @@
+===================
+Component Statement
+===================
+
+component ExampleComponent {
+	i32 num;
+}
+
+---
+(source_file
+	(component_statement
+		(declaration_identifier)
+			(field_statement
+				(builtin_field_type)
+				(declaration_identifier)
+			)
+	)
+)
+
+=======================
+Tag Component Statement
+=======================
+
+component TagExampleComponent;
+
+---
+(source_file
+	(component_statement
+		(declaration_identifier)
+	)
+)
+

@@ -1,0 +1,26 @@
+==================
+Package Statement
+==================
+
+package example;
+
+---
+(source_file
+	(package_statement
+		(package_identifier)
+	)
+)
+
+==================
+Package Statement (alternative)
+==================
+
+package example {}
+
+---
+(source_file
+	(package_statement
+		(package_identifier)
+	)
+)
+
