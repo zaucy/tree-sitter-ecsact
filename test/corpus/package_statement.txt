@@ -24,3 +24,29 @@ package example {}
 	)
 )
 
+==================
+Main Package Statement
+==================
+
+main package example;
+
+---
+(source_file
+	(package_statement
+		(package_identifier)
+	)
+)
+
+==================
+Package Statement With Dots
+==================
+
+package example.pkg.wow;
+
+---
+(source_file
+	(package_statement
+		(package_identifier)
+	)
+)
+

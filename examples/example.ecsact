@@ -41,10 +41,12 @@ system AttackerDamageLongSyntax {
 }
 
 component Attacker;
+component Player;
 
 action Attack {
 	entity target;
 	include Attacker;
 	adds Attacking;
+	include Player;
 }
 

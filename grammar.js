@@ -9,6 +9,7 @@ module.exports = grammar({
 		),
 
 		package_statement: $ => seq(
+			optional('main'),
 			'package',
 			field('name', $.package_identifier),
 			choice(';', seq('{', '}')),
@@ -118,18 +119,18 @@ module.exports = grammar({
 			'adds',
 			'removes',
 			'exclude',
-			'incldue',
+			'include',
 		),
 
 		_system_capability_statement_with_shorthand: $ => seq(
 			$.system_capability,
-			field('component_name', $.declaration_identifier),
+			field('component_lookup', $.declaration_lookup),
 			$.with_statement,
 		),
 
 		_system_capability_statement: $ => seq(
 			$.system_capability,
-			field('component_name', $.declaration_identifier),
+			field('component_lookup', $.declaration_lookup),
 			choice(
 				';',
 				seq(
@@ -194,6 +195,7 @@ module.exports = grammar({
 
 		package_identifier: () => /[a-z][a-z.]+[a-z]/,
 		declaration_identifier: () => /[a-zA-Z][a-zA-Z0-9_]*/,
+		declaration_lookup: () => /[a-zA-Z][a-zA-Z0-9_\.]*/,
 	},
 });
 
