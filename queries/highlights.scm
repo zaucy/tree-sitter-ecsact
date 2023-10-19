@@ -5,7 +5,16 @@
 "}" @punctuation.bracket
 "=" @operator
 
-(package_identifier) @module
+(package_statement
+  "main" @keyword
+  "package" @keyword
+)
+
+(import_statement
+  "import" @keyword
+)
+
+(package_identifier) @string
 
 (builtin_field_type) @type.builtin
 (user_field_type) @type
@@ -17,16 +26,24 @@
 (system_statement name: (declaration_identifier) @type)
 (action_statement name: (declaration_identifier) @type)
 (system_capability_statement component_lookup: (declaration_lookup) @type)
-(with_statement field_name: (declaration_identifier) @property)
+(with_statement
+  "with" @function
+  field_name: (declaration_identifier) @property
+)
 
 (enum_value_statement name: (declaration_identifier) @property)
 (field_statement field_name: (declaration_identifier) @property)
 
 (system_capability) @function
 
-"with" @function
-"package" @keyword
-"import" @keyword
+(notify_option) @function
+
+(notify_statement
+  "notify" @keyword
+  (declaration_identifier) @type
+)
+
+; "with" @function
 "enum" @keyword
 "component" @keyword
 "transient" @keyword

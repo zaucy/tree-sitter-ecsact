@@ -29,6 +29,30 @@ module.exports = grammar({
 			$.action_statement,
 		),
 
+		notify_option: $ =>  /[a-zA-Z][a-zA-Z0-9_]+/,
+
+		_notify_shorthand: $ => seq(
+			'notify',
+			$.notify_option,
+			';',
+		),
+
+		_notify_block: $ => seq(
+			'notify',
+			'{',
+			repeat(seq(
+				field('option', $.notify_option),
+				field('component', $.declaration_identifier),
+				';',
+			)),
+			'}',
+		),
+
+		notify_statement: $ => choice(
+			$._notify_shorthand,
+			$._notify_block,
+		),
+
 		component_statement: $ => seq(
 			'component',
 			field('name', $.declaration_identifier),
@@ -77,7 +101,10 @@ module.exports = grammar({
 				';',
 				seq(
 					'{',
-					repeat($.system_capability_statement),
+					repeat(choice(
+						$.system_capability_statement,
+						$.notify_statement,
+					)),
 					'}',
 				),
 			),
@@ -93,6 +120,7 @@ module.exports = grammar({
 					repeat(choice(
 						$.system_capability_statement,
 						$.field_statement,
+						$.notify_statement,
 					)),
 					'}',
 				),

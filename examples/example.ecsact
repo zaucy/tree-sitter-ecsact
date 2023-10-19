@@ -1,4 +1,4 @@
-package example;
+main package example.main.component.system.pkg;
 
 import other.package;
 import cool;
@@ -24,6 +24,8 @@ component Poisoned {
 system PoisonDamage {
 	readwrite Health;
 	readonly Poisoned;
+
+	notify always;
 }
 
 system AttackerDamageShortSyntax {
@@ -50,3 +52,15 @@ action Attack {
 	include Player;
 }
 
+component BlockAttribute {
+	f32 block_value;
+}
+
+system BlockDamage {
+	readwrite Health;
+	readonly BlockAttribute;
+
+	notify {
+		onchange Health;
+	}
+}

@@ -6,7 +6,8 @@
   "scripts": {
     "test": "tree-sitter test",
     "generate": "tree-sitter generate",
-    "highlight": "tree-sitter highlight examples/example.ecsact"
+    "highlight": "tree-sitter highlight examples/example.ecsact",
+    "parse": "tree-sitter parse examples/example.ecsact"
   },
   "repository": {
     "type": "git",
