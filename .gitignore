@@ -13,3 +13,5 @@
 *.so
 *.wasm
 
+# Copied files for helix testing
+/test/helix/runtime/queries
