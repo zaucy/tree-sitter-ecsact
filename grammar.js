@@ -1,3 +1,11 @@
+function commaSep1(rule) {
+	return seq(rule, repeat(seq(',', rule)))
+}
+
+function commaSep(rule) {
+	return optional(commaSep1(rule))
+}
+
 module.exports = grammar({
 	name : 'ecsact',
 	rules: {
@@ -53,9 +61,33 @@ module.exports = grammar({
 			$._notify_block,
 		),
 
+		boolean: $ => choice('true', 'false'),
+		integer: $ => /[1-9][0-9'.]*/,
+
+		parameter_name: $ => /[a-zA-Z][a-zA-Z0-9_]+/,
+		parameter_value: $ => choice(
+			$.boolean,
+			$.integer,
+		),
+
+		parameter: $ => seq(
+			field('name', $.parameter_name),
+			field('value', optional(seq(
+				':',
+				$.parameter_value,
+			)))
+		),
+
+		parameters: $ => seq(
+			'(',
+			commaSep($.parameter),
+			')',
+		),
+
 		component_statement: $ => seq(
 			'component',
 			field('name', $.declaration_identifier),
+			optional(field('parameters', $.parameters)),
 			choice(
 				';',
 				seq(
@@ -69,6 +101,7 @@ module.exports = grammar({
 		transient_statement: $ => seq(
 			'transient',
 			field('name', $.declaration_identifier),
+			optional(field('parameters', $.parameters)),
 			choice(
 				';',
 				seq(
@@ -82,6 +115,7 @@ module.exports = grammar({
 		enum_statement: $ => seq(
 			'enum',
 			field('name', $.declaration_identifier),
+			optional(field('parameters', $.parameters)),
 			choice(
 				';',
 				seq(
@@ -97,6 +131,7 @@ module.exports = grammar({
 		system_statement: $ => seq(
 			'system',
 			field('name', $.declaration_identifier),
+			optional(field('parameters', $.parameters)),
 			choice(
 				';',
 				seq(
@@ -113,6 +148,7 @@ module.exports = grammar({
 		action_statement: $ => seq(
 			'action',
 			field('name', $.declaration_identifier),
+			optional(field('parameters', $.parameters)),
 			choice(
 				';',
 				seq(

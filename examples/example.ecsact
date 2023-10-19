@@ -56,7 +56,7 @@ component BlockAttribute {
 	f32 block_value;
 }
 
-system BlockDamage {
+system BlockDamage(parallel, lazy: 2) {
 	readwrite Health;
 	readonly BlockAttribute;
 

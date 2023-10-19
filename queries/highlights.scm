@@ -1,8 +1,12 @@
 ";" @punctuation
+":" @punctuation
+"," @punctuation
 "[" @punctuation.bracket
 "]" @punctuation.bracket
 "{" @punctuation.bracket
 "}" @punctuation.bracket
+"(" @punctuation.bracket
+")" @punctuation.bracket
 "=" @operator
 
 (package_statement
@@ -42,6 +46,11 @@
   "notify" @keyword
   (declaration_identifier) @type
 )
+
+(boolean) @constant
+(integer) @constant
+
+(parameter_name) @variable.parameter
 
 ; "with" @function
 "enum" @keyword
