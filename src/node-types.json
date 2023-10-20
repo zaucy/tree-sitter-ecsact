@@ -1,0 +1,694 @@
+[
+  {
+    "type": "action_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "field_statement",
+          "named": true
+        },
+        {
+          "type": "notify_statement",
+          "named": true
+        },
+        {
+          "type": "system_capability_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_field_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "component_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "field_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_value_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_value_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "field_statement",
+    "named": true,
+    "fields": {
+      "field_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "field_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "builtin_field_type",
+            "named": true
+          },
+          {
+            "type": "user_field_type",
+            "named": true
+          }
+        ]
+      },
+      "length": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "import_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "package_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "notify_option",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "notify_statement",
+    "named": true,
+    "fields": {
+      "component": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "option": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "notify_option",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "notify_option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "package_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "package_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "parameter",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "parameter_name",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "parameter_value",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "parameter_name",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "parameter_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "action_statement",
+          "named": true
+        },
+        {
+          "type": "component_statement",
+          "named": true
+        },
+        {
+          "type": "enum_statement",
+          "named": true
+        },
+        {
+          "type": "import_statement",
+          "named": true
+        },
+        {
+          "type": "package_statement",
+          "named": true
+        },
+        {
+          "type": "system_statement",
+          "named": true
+        },
+        {
+          "type": "transient_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "system_capability",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "system_capability_statement",
+    "named": true,
+    "fields": {
+      "component_lookup": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_lookup",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "system_capability",
+          "named": true
+        },
+        {
+          "type": "with_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "system_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "notify_statement",
+          "named": true
+        },
+        {
+          "type": "system_capability_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "transient_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "parameters",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "field_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "user_field_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "declaration_identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "with_statement",
+    "named": true,
+    "fields": {
+      "field_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "declaration_identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "system_capability_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "action",
+    "named": false
+  },
+  {
+    "type": "adds",
+    "named": false
+  },
+  {
+    "type": "component",
+    "named": false
+  },
+  {
+    "type": "declaration_identifier",
+    "named": true
+  },
+  {
+    "type": "declaration_lookup",
+    "named": true
+  },
+  {
+    "type": "entity",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
+  },
+  {
+    "type": "exclude",
+    "named": false
+  },
+  {
+    "type": "f32",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "i16",
+    "named": false
+  },
+  {
+    "type": "i32",
+    "named": false
+  },
+  {
+    "type": "i8",
+    "named": false
+  },
+  {
+    "type": "import",
+    "named": false
+  },
+  {
+    "type": "include",
+    "named": false
+  },
+  {
+    "type": "integer",
+    "named": true
+  },
+  {
+    "type": "main",
+    "named": false
+  },
+  {
+    "type": "notify",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "package",
+    "named": false
+  },
+  {
+    "type": "package_identifier",
+    "named": true
+  },
+  {
+    "type": "readonly",
+    "named": false
+  },
+  {
+    "type": "readwrite",
+    "named": false
+  },
+  {
+    "type": "removes",
+    "named": false
+  },
+  {
+    "type": "system",
+    "named": false
+  },
+  {
+    "type": "transient",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "u16",
+    "named": false
+  },
+  {
+    "type": "u32",
+    "named": false
+  },
+  {
+    "type": "u8",
+    "named": false
+  },
+  {
+    "type": "with",
+    "named": false
+  },
+  {
+    "type": "writeonly",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
